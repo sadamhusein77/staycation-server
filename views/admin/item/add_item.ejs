@@ -1,0 +1,53 @@
+<div class="tab-pane fade" id="add-item" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="card shadow mb-4 mt-2">
+        <form action="/admin/item" method="POST" enctype="multipart/form-data">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" aria-describedby="title"
+                        placeholder="Enter name item" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price" name="price" aria-describedby="price"
+                        placeholder="Enter price" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" name="city" aria-describedby="city"
+                        placeholder="Enter city" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="custom-select" id="categoryId" name="categoryId">
+                        <option selected>Pilih Category</option>
+                        <% for(let i = 0; i < category.length; i++) { %>
+                            <option value="<%= category[i].id %>"><%= category[i].name %></option>
+                        <%}%>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" id="image" name="image" aria-describedby="image"
+                       multiple required>
+                </div>
+                <div class="form-group">
+                    <label for="city">Description</label>
+                    <textarea name="about" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end m-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    setTimeout(() => {
+    const linkElement = document.querySelector('#cke_notifications_area_about');
+    if (linkElement) {
+      linkElement.style.display = 'none';
+    }
+  }, 500);
+</script>
